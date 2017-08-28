@@ -1,0 +1,41 @@
+FORMAT: 1A
+
+# Clay API
+
+With years of collected data from various devices and applications, this is an attempt to de-silo and normalize the data of [my](https://claygregory.com) daily life into a single API. It's still a work in progress with new endpoints forthcoming and possible breaking changes to existing endpoints.
+
+
+### Authentication
+Access requires an API key. This key must be provided in the `x-api-key` header of each request. There are currently no plans to open this API to public consumption.
+
+### Media Types
+This API uses the `application/json` media-type in resource responses.
+
+### Units
+Unless otherwise noted, SI units as follows are used throughout the API:
+
+ * Distance, Length: kilometer
+ * Pressure: pascal
+ * Temperature: degree Celsius
+ * Time: second
+ * Volume: liter
+ * Weight: kilogram
+
+### Upstream Data Sources
+Each event object has a `source` field to reflect the *primary* method of capture. A source value of `user` indicates a manually keyed evented. This field does not reflect any transformations or enrichments that may have taken place in loading.
+
+### Time Zones
+Timestamps in responses are offset to the location in which the event occurred. For example, a heart rate datapoint captured in Champaign, Illinois during daylight savings will be expressed with an offset of UTC-5. Also note: an event may span multiple time zones. So a flight from Chicago to San Francisco will have different offsets in the starting and ending timestamp fields.
+
+
+<!-- include(health.apib) -->
+
+
+<!-- include(location.apib) -->
+
+
+<!-- include(music.apib) -->
+
+
+<!-- include(vehicle.apib) -->
+

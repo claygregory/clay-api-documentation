@@ -1,0 +1,232 @@
+
+/* Page-wide variables */
+@padding: 12px;
+@border-radius: 2px;
+@font-size: 14px;
+@nav-width: 220px;
+@nav-triple-width: 16.5%;
+@right-panel-width: 48.5%;
+@right-panel-background-width: 48.6%;
+
+@base-font: 400 14px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+@title-font: 600 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+@code-font: 400 14px 'Inconsolata', monospace;
+
+/* Basic page-wide colors */
+@background-color: white;
+@text-color: #333;
+
+@link-color: #1A7B93;
+@right-link-color: @link-color;
+
+@heading-text-color: @text-color;
+
+@table-row-background-color: darken(@background-color, 2%);
+@table-border-color: darken(@background-color, 10%);
+
+/* Nav and right panel */
+@nav-hover-border-color: @text-color;
+@nav-hover-background-color: bad-color;
+@nav-hover-text-decoration: none;
+@nav-background-color: #fbfbfb;
+@nav-border-color: #f0f0f0;
+@right-background-color: #333;
+@right-text-color: @background-color;
+@badge-margin: -2px 0;
+
+/* Tabs */
+@tabs-background-color: #D4D8D7;
+@tabs-active-background-color: darken(@tabs-background-color, 10%);
+@tabs-border-color: #ddd;
+@right-tabs-background-color: #444;
+@right-tabs-active-background-color: lighten(@right-tabs-background-color, 10%);
+@right-tabs-border-color: #666;
+
+/* Notes and warnings */
+@note-text-color: @text-color;
+@note-title-text-color: @link-color;
+@note-background-color: mix(@link-color, @background-color, 8%);
+@note-border-color: @note-title-text-color;
+
+@warning-text-color: @text-color;
+@warning-title-text-color: darken(#d9534f, 10%);
+@warning-background-color: mix(@warning-title-text-color, @background-color, 7%);
+@warning-border-color: @warning-title-text-color;
+
+/* Resource groups */
+@group-padding: @padding;
+@group-header-margin: -@padding -@padding @padding -@padding;
+@group-background-color: @background-color;
+@group-title-background-color: #F2F9FB;
+@group-border-color: contrast(@background-color,
+                              darken(@background-color, 15%),
+                              lighten(@background-color, 15%));
+@group-text-color: contrast(@group-background-color);
+
+/* HTTP method-specific colors */
+
+/* HTTP GET */
+@get-color: #1A7B93;
+@get-background-color: #D0EBF2;
+@get-text-color: contrast(@get-background-color);
+@get-badge-text-color: darken(@get-background-color, 25%);
+@get-border-color: darken(spin(@get-background-color, -10), 7%);
+
+/* HTTP HEAD */
+@head-color: @get-color;
+@head-background-color: @get-background-color;
+@head-text-color: @get-text-color;
+@head-badge-text-color: @get-badge-text-color;
+@head-border-color: @get-border-color;
+
+/* HTTP OPTIONS */
+@options-color: @get-color;
+@options-background-color: @get-background-color;
+@options-text-color: @get-text-color;
+@options-badge-text-color: @get-badge-text-color;
+@options-border-color: @get-border-color;
+
+/* HTTP PUT */
+@put-color: darken(#f0ad4e, 8%);
+@put-background-color: #fcf8e3;
+@put-text-color: contrast(@put-background-color);
+@put-badge-text-color: darken(@put-background-color, 25%);
+@put-border-color: darken(spin(@put-background-color, -10), 5%);
+
+/* HTTP PATCH */
+@patch-color: @put-color;
+@patch-background-color: @put-background-color;
+@patch-text-color: @put-text-color;
+@patch-badge-text-color: @put-badge-text-color;
+@patch-border-color: @put-border-color;
+
+/* HTTP POST */
+@post-color: #5cb85c;
+@post-background-color: #dff0d8;
+@post-text-color: contrast(@post-background-color);
+@post-badge-text-color: darken(@post-background-color, 25%);
+@post-border-color: darken(spin(@post-background-color, -10), 5%);
+
+/* HTTP DELETE */
+@delete-color: #d9534f;
+@delete-background-color: #f2dede;
+@delete-text-color: contrast(@delete-background-color);
+@delete-badge-text-color: darken(@delete-background-color, 25%);
+@delete-border-color: darken(spin(@delete-background-color, -10), 5%);
+
+/* Code colors */
+@inline-code-background-color: white;
+@inline-code-text-color: #444;
+
+@code-block-text-color: #718c00;
+@code-block-background-color: #002b36;
+@code-block-border-color: contrast(@code-block-background-color,
+                                   darken(@code-block-background-color, 15%),
+                                   lighten(@code-block-background-color, 15%));
+
+@right-code-block-text-color: #c5c8c6;
+@right-code-block-background-color: #1d1f21;
+@right-code-block-border-color: @right-code-block-background-color;
+
+@title-code-background-color: @inline-code-background-color;
+@title-code-text-color: @inline-code-text-color;
+@title-code-border-color: @code-block-border-color;
+
+@quote-border-color: contrast(@code-block-background-color,
+                              darken(@code-block-background-color, 5%),
+                              lighten(@code-block-background-color, 5%));
+
+code {
+	border: none !important;
+	padding: 0 !important;
+}
+
+nav {
+	padding-right: @padding;	
+}
+
+nav .heading {
+	font-weight: bold;
+}
+
+section, h2 {
+	margin-top: @padding * 6 !important;
+}
+
+h3 {
+	margin-top: @padding * 2 !important;
+}
+
+.action-heading code {
+	padding: 4px !important;
+}
+
+.badge {
+	display: none !important;
+}
+
+.uri {
+	padding: 6px;
+}
+
+.resource + .resource {
+	margin-top: 4 * @padding !important;
+}
+
+.resource-group .group-heading {
+	margin-top: -@padding !important;
+}
+
+
+
+
+.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    background: #002b36;
+    color: #839496
+}
+
+.hljs-comment, .hljs-quote {
+    color: #586e75
+}
+
+.hljs-keyword, .hljs-selector-tag, .hljs-addition {
+    color: #859900
+}
+
+.hljs-number, .hljs-string, .hljs-meta .hljs-meta-string, .hljs-literal,
+.hljs-doctag, .hljs-regexp {
+    color: #2aa198
+}
+
+.hljs-title, .hljs-section, .hljs-name, .hljs-selector-id, .hljs-selector-class {
+    color: #268bd2
+}
+
+.hljs-attribute, .hljs-attr, .hljs-variable, .hljs-template-variable,
+.hljs-class .hljs-title, .hljs-type {
+    color: #b58900
+}
+
+.hljs-symbol, .hljs-bullet, .hljs-subst, .hljs-meta, .hljs-meta .hljs-keyword,
+.hljs-selector-attr, .hljs-selector-pseudo, .hljs-link {
+    color: #cb4b16
+}
+
+.hljs-built_in, .hljs-deletion {
+    color: #dc322f
+}
+
+.hljs-formula {
+    background: #073642
+}
+
+.hljs-emphasis {
+    font-style: italic
+}
+
+.hljs-strong {
+    font-weight: bold
+}

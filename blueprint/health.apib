@@ -1,0 +1,506 @@
+
+# Group Health
+
+Health and wellness endpoints provide access vitals, physical activeness, and sleep as captured by consumer-grade fitness trackers. In addition, genomic data is also available here.
+
+## Activity [/health/activity{?datetime_gte,datetime_lte}]
+
+### List Activity [GET]
+
++ Parameters
+	+ datetime_gte: `2017-01-09T23:57:00-06:00` (string, optional) - Datetime greater than or equal, in ISO8601 format
+	+ datetime_lte: `2017-01-10T00:00:00-06:00` (string, optional) - Datetime less than or equal, in ISO8601 format
+
++ Response 200 (application/json)
+
+		{
+		    "meta": {
+		        "has_more": false,
+		        "total_size": 4
+		    },
+		    "results": [
+		        {
+		            "id": "94d2fc6835cb43447af883e2fdba1e6a",
+		            "datetime": "2017-01-10T00:00:00-06:00",
+		            "calories": 1.2499200105667114,
+		            "distance": 0,
+		            "floors": 0,
+		            "steps": 0,
+		            "source": "fitbit"
+		        },
+		        {
+		            "id": "428375b3ba48e22e95eb75f2fdf69dc4",
+		            "datetime": "2017-01-09T23:59:00-06:00",
+		            "calories": 3.749039888381958,
+		            "distance": 0.019899999722838402,
+		            "floors": 0,
+		            "steps": 27,
+		            "source": "fitbit"
+		        },
+		        {
+		            "id": "53d655901fff83e708a627660e7b7612",
+		            "datetime": "2017-01-09T23:58:00-06:00",
+		            "calories": 3.1242001056671143,
+		            "distance": 0.016899999231100082,
+		            "floors": 0,
+		            "steps": 23,
+		            "source": "fitbit"
+		        },
+		        {
+		            "id": "598918043bd0fc6123b8400b70eb646b",
+		            "datetime": "2017-01-09T23:57:00-06:00",
+		            "calories": 2.4993600845336914,
+		            "distance": 0.002899999963119626,
+		            "floors": 0,
+		            "steps": 4,
+		            "source": "fitbit"
+		        }
+		    ]
+		}
+
+### Get Activity [GET /health/activity/{id}]
+
++ Parameters
+	+ id: `94d2fc6835cb43447af883e2fdba1e6a` (string) - Activity ID
+
++ Response 200 (application/json)
+
+        {
+            "id": "94d2fc6835cb43447af883e2fdba1e6a",
+            "datetime": "2017-01-10T00:00:00-06:00",
+            "calories": 1.2499200105667114,
+            "distance": 0,
+            "floors": 0,
+            "steps": 0,
+            "source": "fitbit"
+        }
+
+
+## Genotype [/health/genotype{?chromosome,position_gte,position_lte,gene,size}]
+
+### List Genotype [GET]
+
++ Parameters
+	+ chromosome: 1 (string, optional) - The chromosome name (1–22, X, Y, and MT)
+	+ position_gte: 82154 (integer, optional) - Position greater than or equal
+	+ position_lte: 752566 (integer, optional) - Position greater than or equal
+	+ gene (string, optional) - Loci associated with given gene name
+
++ Response 200 (application/json)
+
+		{
+		    "meta": {
+		        "has_more": false,
+		        "total_size": 2
+		    },
+		    "results": [
+		        {
+		            "id": "rs4477212",
+		            "chromosome": "1",
+		            "position": 82154,
+		            "gene_names": [],
+		            "call": "AA",
+		            "source": "23andme"
+		        },
+		        {
+		            "id": "rs3094315",
+		            "chromosome": "1",
+		            "position": 752566,
+		            "gene_names": [],
+		            "call": "AA",
+		            "source": "23andme"
+		        }
+		    ]
+		}
+
+### Get Genotype [GET /health/genotype/{id}]
+
++ Parameters
+	+ id: `rs4477212` (string) - SNP ID, the NCBI reference SNP cluster ID (rs#) when possible, but may also be a private identifier
+
++ Response 200 (application/json)
+
+
+		{
+		    "id": "rs4477212",
+		    "chromosome": "1",
+		    "position": 82154,
+		    "gene_names": [],
+		    "call": "AA",
+		    "source": "23andme"
+		}
+
+
+## Heart Rate [/health/heart{?datetime_gte,datetime_lte}]
+
++ Parameters
+	+ datetime_gte: `2017-01-29T23:58:19-06:00` (string, optional) - Datetime greater than or equal, in ISO8601 format
+	+ datetime_lte: `2017-01-29T23:58:59-06:00` (string, optional) - Datetime less than or equal, in ISO8601 format
+
+### List Heart Rate [GET]
+
++ Response 200 (application/json)
+
+		{
+		    "meta": {
+		        "has_more": false,
+		        "total_size": 4
+		    },
+		    "results": [
+		        {
+		            "id": "c7d8e629504be8a6ee13d31dae4cbccd",
+		            "datetime": "2017-01-29T23:58:59-06:00",
+		            "bpm": 58,
+		            "source": "fitbit"
+		        },
+		        {
+		            "id": "bdd6db5f4cdaf8b2a02ec935bc445932",
+		            "datetime": "2017-01-29T23:58:44-06:00",
+		            "bpm": 58,
+		            "source": "fitbit"
+		        },
+		        {
+		            "id": "3992206725faf2d15ed28bdb6db0060d",
+		            "datetime": "2017-01-29T23:58:34-06:00",
+		            "bpm": 60,
+		            "source": "fitbit"
+		        },
+		        {
+		            "id": "b793685606b257c4345116a9b82dcd61",
+		            "datetime": "2017-01-29T23:58:19-06:00",
+		            "bpm": 60,
+		            "source": "fitbit"
+		        }
+		    ]
+		}
+
+### Get Heart Rate [GET /health/heart/{id}]
+
++ Parameters
+	+ id: `c7d8e629504be8a6ee13d31dae4cbccd` (string) - Heart rate ID
+
++ Response 200 (application/json)
+
+		{
+            "id": "c7d8e629504be8a6ee13d31dae4cbccd",
+            "datetime": "2017-01-29T23:58:59-06:00",
+            "bpm": 58,
+            "source": "fitbit"
+        }
+
+
+## Sleep [/health/sleep{?datetime_start_gte,datetime_start_lte,datetime_end_gte,datetime_end_lte}]
+
+### List Sleep Sessions [GET]
+
++ Parameters
+	+ datetime_start_gte: `2017-01-22T00:00:00-06:00` (string, optional) - Starting datetime greater than or equal, in ISO8601 format
+	+ datetime_start_lte: `2017-01-26T00:00:00-06:00` (string, optional) - Starting datetime less than or equal, in ISO8601 format
+	+ datetime_end_gte (string, optional) - Ending datetime greater than or equal, in ISO8601 format
+	+ datetime_end_lte (string, optional) - Ending datetime less than or equal, in ISO8601 format
+
++ Response 200 (application/json)
+
+		{
+		    "meta": {
+		        "has_more": false,
+		        "total_size": 4
+		    },
+		    "results": [
+		         {
+		            "id": "18da59bbafac837779d6a82c402cf5ea",
+		            "datetime_start": "2017-01-25T00:05:00-06:00",
+		            "datetime_end": "2017-01-25T08:23:00-06:00",
+		            "duration": 29880,
+		            "until_asleep_duration": 360,
+		            "asleep_duration": 28380,
+		            "after_wakeup_duration": 0,
+		            "source": "fitbit"
+		        },
+		        {
+		            "id": "22ca8910da54dac00926c65436919285",
+		            "datetime_start": "2017-01-23T23:39:00-06:00",
+		            "datetime_end": "2017-01-24T08:24:00-06:00",
+		            "duration": 31500,
+		            "until_asleep_duration": 420,
+		            "asleep_duration": 30660,
+		            "after_wakeup_duration": 0,
+		            "source": "fitbit"
+		        },
+		        {
+		            "id": "d25c755f085a2553813012345b56526f",
+		            "datetime_start": "2017-01-23T01:03:00-06:00",
+		            "datetime_end": "2017-01-23T07:55:00-06:00",
+		            "duration": 24720,
+		            "until_asleep_duration": 360,
+		            "asleep_duration": 23460,
+		            "after_wakeup_duration": 0,
+		            "source": "fitbit"
+		        },
+		        {
+		            "id": "5ccb93993b8b917e0bb663f5cbd0bd09",
+		            "datetime_start": "2017-01-22T00:02:00-06:00",
+		            "datetime_end": "2017-01-22T08:14:00-06:00",
+		            "duration": 29520,
+		            "until_asleep_duration": 360,
+		            "asleep_duration": 28260,
+		            "after_wakeup_duration": 0,
+		            "source": "fitbit"
+		        }
+		    ]
+		}
+
+### Get Sleep Session [GET /health/sleep/{id}]
+
++ Parameters
+	+ id: `d25c755f085a2553813012345b56526f` (string) - Sleep session ID
+
++ Response 200 (application/json)
+
+		{
+		    "id": "d25c755f085a2553813012345b56526f",
+		    "datetime_start": "2017-01-23T01:03:00-06:00",
+		    "datetime_end": "2017-01-23T07:55:00-06:00",
+		    "duration": 24720,
+		    "until_asleep_duration": 360,
+		    "asleep_duration": 23460,
+		    "after_wakeup_duration": 0,
+		    "levels": [
+		        {
+		            "datetime_start": "2017-01-23T01:03:00-06:00",
+		            "datetime_end": "2017-01-23T01:08:00-06:00",
+		            "duration": 300,
+		            "level": "awake"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T01:08:00-06:00",
+		            "datetime_end": "2017-01-23T01:09:00-06:00",
+		            "duration": 60,
+		            "level": "restless"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T01:09:00-06:00",
+		            "datetime_end": "2017-01-23T01:33:00-06:00",
+		            "duration": 1440,
+		            "level": "asleep"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T01:33:00-06:00",
+		            "datetime_end": "2017-01-23T01:34:00-06:00",
+		            "duration": 60,
+		            "level": "restless"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T01:34:00-06:00",
+		            "datetime_end": "2017-01-23T01:35:00-06:00",
+		            "duration": 60,
+		            "level": "asleep"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T01:35:00-06:00",
+		            "datetime_end": "2017-01-23T01:36:00-06:00",
+		            "duration": 60,
+		            "level": "restless"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T01:36:00-06:00",
+		            "datetime_end": "2017-01-23T01:37:00-06:00",
+		            "duration": 60,
+		            "level": "awake"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T01:37:00-06:00",
+		            "datetime_end": "2017-01-23T02:11:00-06:00",
+		            "duration": 2040,
+		            "level": "asleep"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T02:11:00-06:00",
+		            "datetime_end": "2017-01-23T02:12:00-06:00",
+		            "duration": 60,
+		            "level": "restless"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T02:12:00-06:00",
+		            "datetime_end": "2017-01-23T02:23:00-06:00",
+		            "duration": 660,
+		            "level": "asleep"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T02:23:00-06:00",
+		            "datetime_end": "2017-01-23T02:24:00-06:00",
+		            "duration": 60,
+		            "level": "restless"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T02:24:00-06:00",
+		            "datetime_end": "2017-01-23T02:26:00-06:00",
+		            "duration": 120,
+		            "level": "asleep"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T02:26:00-06:00",
+		            "datetime_end": "2017-01-23T02:27:00-06:00",
+		            "duration": 60,
+		            "level": "restless"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T02:27:00-06:00",
+		            "datetime_end": "2017-01-23T03:45:00-06:00",
+		            "duration": 4680,
+		            "level": "asleep"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T03:45:00-06:00",
+		            "datetime_end": "2017-01-23T03:46:00-06:00",
+		            "duration": 60,
+		            "level": "restless"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T03:46:00-06:00",
+		            "datetime_end": "2017-01-23T05:40:00-06:00",
+		            "duration": 6840,
+		            "level": "asleep"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T05:40:00-06:00",
+		            "datetime_end": "2017-01-23T05:41:00-06:00",
+		            "duration": 60,
+		            "level": "restless"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T05:41:00-06:00",
+		            "datetime_end": "2017-01-23T05:43:00-06:00",
+		            "duration": 120,
+		            "level": "asleep"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T05:43:00-06:00",
+		            "datetime_end": "2017-01-23T05:44:00-06:00",
+		            "duration": 60,
+		            "level": "restless"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T05:44:00-06:00",
+		            "datetime_end": "2017-01-23T07:35:00-06:00",
+		            "duration": 6660,
+		            "level": "asleep"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T07:35:00-06:00",
+		            "datetime_end": "2017-01-23T07:40:00-06:00",
+		            "duration": 300,
+		            "level": "restless"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T07:40:00-06:00",
+		            "datetime_end": "2017-01-23T07:41:00-06:00",
+		            "duration": 60,
+		            "level": "awake"
+		        },
+		        {
+		            "datetime_start": "2017-01-23T07:41:00-06:00",
+		            "datetime_end": "2017-01-23T07:55:00-06:00",
+		            "duration": 840,
+		            "level": "asleep"
+		        }
+		    ],
+		    "source": "fitbit"
+		}
+
+## Vision [/health/vision{?datetime_gte,datetime_lte}]
+
+### List Vision Prescriptions [GET]
+
++ Parameters
+	+ datetime_gte: `2014-01-01` (string, optional) - Datetime greater than or equal, in ISO8601 format
+	+ datetime_lte: `2015-01-01` (string, optional) - Datetime less than or equal, in ISO8601 format
+
+
++ Response 200 (application/json)
+
+		{
+		    "meta": {
+		        "has_more": false,
+		        "total_size": 1
+		    },
+		    "results": [
+		        {
+		            "id": "f1f07ab3e9aaaf822f67ac930024c26f",
+		            "datetime": "2014-06-20T16:00:00-05:00",
+		            "doctor": "[redacted]",
+		            "office": "[redacted]",
+		            "od_sphere": -1.25,
+		            "od_cylinder": -1,
+		            "od_axis": 170,
+		            "os_sphere": -1.25,
+		            "os_cylinder": -1,
+		            "os_axis": 177,
+		            "source": "user"
+		        }
+		    ]
+		}
+
+### Get Vision Prescription [GET /health/vision/{id}]
+
++ Parameters
+	+ id: `f1f07ab3e9aaaf822f67ac930024c26f` (string) - Prescription ID
+
+
++ Response 200 (application/json)
+
+        {
+            "id": "f1f07ab3e9aaaf822f67ac930024c26f",
+            "datetime": "2014-06-20T16:00:00-05:00",
+            "doctor": "[redacted]",
+            "office": "[redacted]",
+            "od_sphere": -1.25,
+            "od_cylinder": -1,
+            "od_axis": 170,
+            "os_sphere": -1.25,
+            "os_cylinder": -1,
+            "os_axis": 177,
+            "source": "user"
+        }
+
+## Weight [/health/weight{?datetime_gte,datetime_lte}]
+
+### List Weight [GET]
+
++ Parameters
+	+ datetime_gte: `2017-08-14` (string, optional) - Datetime greater than or equal, in ISO8601 format
+	+ datetime_lte: `2017-08-15` (string, optional) - Datetime less than or equal, in ISO8601 format
+
+
++ Response 200 (application/json)
+
+		{
+		    "meta": {
+		        "has_more": false,
+		        "total_size": 1
+		    },
+		    "results": [
+		        {
+		            "id": "ea057ef3997ade79f28fc548365eaff8",
+		            "datetime": "2017-08-14T06:51:38-05:00",
+		            "weight": 56.4,
+		            "source": "fitbit"
+		        }
+		    ]
+		}
+
+
+### Get Weight [GET /health/weight/{id}]
+
++ Parameters
+	+ id: `ea057ef3997ade79f28fc548365eaff8` (string) - Weight ID
+
+
++ Response 200 (application/json)
+
+        {
+            "id": "ea057ef3997ade79f28fc548365eaff8",
+            "datetime": "2017-08-14T06:51:38-05:00",
+            "weight": 56.4,
+            "source": "fitbit"
+        }

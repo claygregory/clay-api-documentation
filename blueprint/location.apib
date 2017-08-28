@@ -1,0 +1,1113 @@
+
+# Group Location
+
+Current location and travel history is available from the location endpoints. Travel history includes places and transit segments.
+
+## Location History [/location/history{?datetime_start_gte,datetime_start_lte,datetime_end_gte,datetime_end_lte}]
+
+### List Location Segments [GET]
+
++ Parameters
+	+ datetime_start_gte: `2016-10-13T10:00:00-05:00` (string, optional) - Starting datetime greater than or equal, in ISO8601 format
+	+ datetime_start_lte: `2016-10-13T14:00:00-05:00` (string, optional) - Starting datetime less than or equal, in ISO8601 format
+	+ datetime_end_gte (string, optional) - Ending datetime greater than or equal, in ISO8601 format
+	+ datetime_end_lte (string, optional) - Ending datetime less than or equal, in ISO8601 format
+
++ Response 200 (application/json)
+
+		{
+		    "meta": {
+		        "has_more": false,
+		        "total_size": 3
+		    },
+		    "results": [
+		        {
+		            "id": "a852c3228daac99e0637395cf32bbb06",
+		            "type": "place",
+		            "datetime_start": "2016-10-13T13:25:01-05:00",
+		            "datetime_end": "2016-10-13T14:09:19-05:00",
+		            "duration": 2658,
+		            "place_id": "3b3a6fec47d6087e35580ee62f21722e",
+		            "name": "Chicago Union Station",
+		            "primary_category": "Train Station",
+		            "categories": [
+		                "Train Station"
+		            ],
+		            "location": {
+		                "lat": 41.87877396415131,
+		                "lon": -87.63908085286361
+		            },
+		            "address": {
+		                "formatted_address": "222 S Riverside Plaza, Chicago, IL 60606, USA",
+		                "street_number": "222",
+		                "street_name": "South Riverside Plaza",
+		                "neighborhood": "West Loop Gate",
+		                "city": "Chicago",
+		                "country": "United States",
+		                "country_code": "US",
+		                "postal_code": "60606",
+		                "administrative_level_1": {
+		                    "short": "IL",
+		                    "long": "Illinois"
+		                },
+		                "administrative_level_2": {
+		                    "short": "Cook County",
+		                    "long": "Cook County"
+		                }
+		            },
+		            "source": "moves-app"
+		        },
+		        {
+		            "id": "e027633d25ff97f253fdaf34dbdc7489",
+		            "type": "move",
+		            "activity": "train",
+		            "datetime_start": "2016-10-13T10:47:44-05:00",
+		            "datetime_end": "2016-10-13T13:25:01-05:00",
+		            "duration": 9437,
+		            "distance": 239.145,
+		            "location_start": {
+		                "lat": 40.115767,
+		                "lon": -88.241415
+		            },
+		            "location_end": {
+		                "lat": 41.878604,
+		                "lon": -87.639012
+		            },
+		            "address": {
+		                "country": "United States",
+		                "country_code": "US",
+		                "administrative_level_1": {
+		                    "short": "IL",
+		                    "long": "Illinois"
+		                }
+		            },
+		            "address_start": {
+		                "formatted_address": "101 S Market St, Champaign, IL 61820, USA",
+		                "street_number": "101",
+		                "street_name": "South Market Street",
+		                "neighborhood": "Downtown Champaign",
+		                "city": "Champaign",
+		                "country": "United States",
+		                "country_code": "US",
+		                "postal_code": "61820",
+		                "administrative_level_1": {
+		                    "short": "IL",
+		                    "long": "Illinois"
+		                },
+		                "administrative_level_2": {
+		                    "short": "Champaign County",
+		                    "long": "Champaign County"
+		                },
+		                "administrative_level_3": {
+		                    "short": "Champaign City Township",
+		                    "long": "Champaign City Township"
+		                }
+		            },
+		            "address_end": {
+		                "formatted_address": "222 S Riverside Plaza, Chicago, IL 60606, USA",
+		                "street_number": "222",
+		                "street_name": "South Riverside Plaza",
+		                "neighborhood": "West Loop Gate",
+		                "city": "Chicago",
+		                "country": "United States",
+		                "country_code": "US",
+		                "postal_code": "60606",
+		                "administrative_level_1": {
+		                    "short": "IL",
+		                    "long": "Illinois"
+		                },
+		                "administrative_level_2": {
+		                    "short": "Cook County",
+		                    "long": "Cook County"
+		                }
+		            },
+		            "source": "moves-app"
+		        },
+		        {
+		            "id": "cf0cc2de977d2ca3de81e58458f6b75b",
+		            "type": "place",
+		            "datetime_start": "2016-10-13T10:06:52-05:00",
+		            "datetime_end": "2016-10-13T10:47:44-05:00",
+		            "duration": 2452,
+		            "place_id": "674a7517c4936ff9367f77faa98a22b4",
+		            "name": "Illinois Terminal",
+		            "primary_category": "Train Station",
+		            "categories": [
+		                "Train Station",
+		                "Bus Stop",
+		                "Bus Station"
+		            ],
+		            "location": {
+		                "lat": 40.115824014251,
+		                "lon": -88.2411789894104
+		            },
+		            "address": {
+		                "formatted_address": "101 S Market St, Champaign, IL 61820, USA",
+		                "street_number": "101",
+		                "street_name": "South Market Street",
+		                "neighborhood": "Downtown Champaign",
+		                "city": "Champaign",
+		                "country": "United States",
+		                "country_code": "US",
+		                "postal_code": "61820",
+		                "administrative_level_1": {
+		                    "short": "IL",
+		                    "long": "Illinois"
+		                },
+		                "administrative_level_2": {
+		                    "short": "Champaign County",
+		                    "long": "Champaign County"
+		                },
+		                "administrative_level_3": {
+		                    "short": "Champaign City Township",
+		                    "long": "Champaign City Township"
+		                }
+		            },
+		            "source": "moves-app"
+		        }
+		    ]
+		}
+
+
+### Get Location Segment [GET /location/history/{id}]
+
++ Parameters
+	+ id: `e027633d25ff97f253fdaf34dbdc7489` (string) - Location history ID
+
++ Response 200 (application/json)
+
+		{
+			"id": "e027633d25ff97f253fdaf34dbdc7489",
+		    "type": "move",
+		    "activity": "train",
+		    "datetime_start": "2016-10-13T10:47:44-05:00",
+		    "datetime_end": "2016-10-13T13:25:01-05:00",
+		    "duration": 9437,
+		    "distance": 239.145,
+		    "location_start": {
+		        "lat": 40.115767,
+		        "lon": -88.241415
+		    },
+		    "location_end": {
+		        "lat": 41.878604,
+		        "lon": -87.639012
+		    },
+		    "address": {
+		        "country": "United States",
+		        "country_code": "US",
+		        "administrative_level_1": {
+		            "short": "IL",
+		            "long": "Illinois"
+		        }
+		    },
+		    "address_start": {
+		        "formatted_address": "101 S Market St, Champaign, IL 61820, USA",
+		        "street_number": "101",
+		        "street_name": "South Market Street",
+		        "neighborhood": "Downtown Champaign",
+		        "city": "Champaign",
+		        "country": "United States",
+		        "country_code": "US",
+		        "postal_code": "61820",
+		        "administrative_level_1": {
+		            "short": "IL",
+		            "long": "Illinois"
+		        },
+		        "administrative_level_2": {
+		            "short": "Champaign County",
+		            "long": "Champaign County"
+		        },
+		        "administrative_level_3": {
+		            "short": "Champaign City Township",
+		            "long": "Champaign City Township"
+		        }
+		    },
+		    "address_end": {
+		        "formatted_address": "222 S Riverside Plaza, Chicago, IL 60606, USA",
+		        "street_number": "222",
+		        "street_name": "South Riverside Plaza",
+		        "neighborhood": "West Loop Gate",
+		        "city": "Chicago",
+		        "country": "United States",
+		        "country_code": "US",
+		        "postal_code": "60606",
+		        "administrative_level_1": {
+		            "short": "IL",
+		            "long": "Illinois"
+		        },
+		        "administrative_level_2": {
+		            "short": "Cook County",
+		            "long": "Cook County"
+		        }
+		    },
+		    "path": [
+		        {
+		            "datetime": "2016-10-13T10:47:44-05:00",
+		            "lat": 40.115767,
+		            "lon": -88.241415
+		        },
+		        {
+		            "datetime": "2016-10-13T10:48:19-05:00",
+		            "lat": 40.117931,
+		            "lon": -88.239928
+		        },
+		        {
+		            "datetime": "2016-10-13T10:49:35-05:00",
+		            "lat": 40.127267,
+		            "lon": -88.235998
+		        },
+		        {
+		            "datetime": "2016-10-13T10:50:02-05:00",
+		            "lat": 40.131125,
+		            "lon": -88.236628
+		        },
+		        {
+		            "datetime": "2016-10-13T10:51:48-05:00",
+		            "lat": 40.146875,
+		            "lon": -88.227982
+		        },
+		        {
+		            "datetime": "2016-10-13T10:52:03-05:00",
+		            "lat": 40.149181,
+		            "lon": -88.227006
+		        },
+		        {
+		            "datetime": "2016-10-13T10:56:52-05:00",
+		            "lat": 40.170056,
+		            "lon": -88.218284
+		        },
+		        {
+		            "datetime": "2016-10-13T10:57:07-05:00",
+		            "lat": 40.173122,
+		            "lon": -88.21701
+		        },
+		        {
+		            "datetime": "2016-10-13T10:59:59-05:00",
+		            "lat": 40.215924,
+		            "lon": -88.198995
+		        },
+		        {
+		            "datetime": "2016-10-13T11:00:00-05:00",
+		            "lat": 40.215926,
+		            "lon": -88.198994
+		        },
+		        {
+		            "datetime": "2016-10-13T11:00:46-05:00",
+		            "lat": 40.227334,
+		            "lon": -88.194192
+		        },
+		        {
+		            "datetime": "2016-10-13T11:01:03-05:00",
+		            "lat": 40.229036,
+		            "lon": -88.19367
+		        },
+		        {
+		            "datetime": "2016-10-13T11:03:04-05:00",
+		            "lat": 40.246436,
+		            "lon": -88.186597
+		        },
+		        {
+		            "datetime": "2016-10-13T11:05:16-05:00",
+		            "lat": 40.279245,
+		            "lon": -88.172874
+		        },
+		        {
+		            "datetime": "2016-10-13T11:07:33-05:00",
+		            "lat": 40.309855,
+		            "lon": -88.159837
+		        },
+		        {
+		            "datetime": "2016-10-13T11:08:51-05:00",
+		            "lat": 40.311667,
+		            "lon": -88.159008
+		        },
+		        {
+		            "datetime": "2016-10-13T11:09:48-05:00",
+		            "lat": 40.319589,
+		            "lon": -88.155737
+		        },
+		        {
+		            "datetime": "2016-10-13T11:13:19-05:00",
+		            "lat": 40.374538,
+		            "lon": -88.132684
+		        },
+		        {
+		            "datetime": "2016-10-13T11:16:47-05:00",
+		            "lat": 40.433615,
+		            "lon": -88.107848
+		        },
+		        {
+		            "datetime": "2016-10-13T11:17:04-05:00",
+		            "lat": 40.438268,
+		            "lon": -88.105813
+		        },
+		        {
+		            "datetime": "2016-10-13T11:21:51-05:00",
+		            "lat": 40.518842,
+		            "lon": -88.071656
+		        },
+		        {
+		            "datetime": "2016-10-13T11:26:44-05:00",
+		            "lat": 40.599387,
+		            "lon": -88.037528
+		        },
+		        {
+		            "datetime": "2016-10-13T11:27:20-05:00",
+		            "lat": 40.607901,
+		            "lon": -88.033884
+		        },
+		        {
+		            "datetime": "2016-10-13T11:27:38-05:00",
+		            "lat": 40.612167,
+		            "lon": -88.031966
+		        },
+		        {
+		            "datetime": "2016-10-13T11:30:45-05:00",
+		            "lat": 40.663766,
+		            "lon": -88.018902
+		        },
+		        {
+		            "datetime": "2016-10-13T11:31:03-05:00",
+		            "lat": 40.668536,
+		            "lon": -88.017778
+		        },
+		        {
+		            "datetime": "2016-10-13T11:31:21-05:00",
+		            "lat": 40.670844,
+		            "lon": -88.017016
+		        },
+		        {
+		            "datetime": "2016-10-13T11:39:22-05:00",
+		            "lat": 40.758186,
+		            "lon": -87.996537
+		        },
+		        {
+		            "datetime": "2016-10-13T11:40:24-05:00",
+		            "lat": 40.767943,
+		            "lon": -87.993732
+		        },
+		        {
+		            "datetime": "2016-10-13T11:40:39-05:00",
+		            "lat": 40.770072,
+		            "lon": -87.9937
+		        },
+		        {
+		            "datetime": "2016-10-13T11:42:45-05:00",
+		            "lat": 40.802177,
+		            "lon": -87.98526
+		        },
+		        {
+		            "datetime": "2016-10-13T11:43:03-05:00",
+		            "lat": 40.80775,
+		            "lon": -87.983291
+		        },
+		        {
+		            "datetime": "2016-10-13T11:47:13-05:00",
+		            "lat": 40.876593,
+		            "lon": -87.956126
+		        },
+		        {
+		            "datetime": "2016-10-13T11:48:47-05:00",
+		            "lat": 40.903512,
+		            "lon": -87.946752
+		        },
+		        {
+		            "datetime": "2016-10-13T11:49:04-05:00",
+		            "lat": 40.908746,
+		            "lon": -87.944819
+		        },
+		        {
+		            "datetime": "2016-10-13T11:50:27-05:00",
+		            "lat": 40.930978,
+		            "lon": -87.935321
+		        },
+		        {
+		            "datetime": "2016-10-13T11:52:37-05:00",
+		            "lat": 40.969444,
+		            "lon": -87.921538
+		        },
+		        {
+		            "datetime": "2016-10-13T11:52:56-05:00",
+		            "lat": 40.972708,
+		            "lon": -87.920312
+		        },
+		        {
+		            "datetime": "2016-10-13T11:53:11-05:00",
+		            "lat": 40.976962,
+		            "lon": -87.918701
+		        },
+		        {
+		            "datetime": "2016-10-13T11:54:48-05:00",
+		            "lat": 41.004984,
+		            "lon": -87.907957
+		        },
+		        {
+		            "datetime": "2016-10-13T11:56:45-05:00",
+		            "lat": 41.038301,
+		            "lon": -87.895348
+		        },
+		        {
+		            "datetime": "2016-10-13T11:59:59-05:00",
+		            "lat": 41.071417,
+		            "lon": -87.882668
+		        },
+		        {
+		            "datetime": "2016-10-13T12:00:00-05:00",
+		            "lat": 41.071419,
+		            "lon": -87.882667
+		        },
+		        {
+		            "datetime": "2016-10-13T12:00:03-05:00",
+		            "lat": 41.071931,
+		            "lon": -87.882471
+		        },
+		        {
+		            "datetime": "2016-10-13T12:05:05-05:00",
+		            "lat": 41.118655,
+		            "lon": -87.865623
+		        },
+		        {
+		            "datetime": "2016-10-13T12:05:36-05:00",
+		            "lat": 41.118808,
+		            "lon": -87.865625
+		        },
+		        {
+		            "datetime": "2016-10-13T12:05:59-05:00",
+		            "lat": 41.11879,
+		            "lon": -87.865638
+		        },
+		        {
+		            "datetime": "2016-10-13T12:06:27-05:00",
+		            "lat": 41.119181,
+		            "lon": -87.865693
+		        },
+		        {
+		            "datetime": "2016-10-13T12:06:49-05:00",
+		            "lat": 41.119679,
+		            "lon": -87.865721
+		        },
+		        {
+		            "datetime": "2016-10-13T12:07:45-05:00",
+		            "lat": 41.128006,
+		            "lon": -87.862567
+		        },
+		        {
+		            "datetime": "2016-10-13T12:08:17-05:00",
+		            "lat": 41.136034,
+		            "lon": -87.862883
+		        },
+		        {
+		            "datetime": "2016-10-13T12:08:35-05:00",
+		            "lat": 41.140798,
+		            "lon": -87.861624
+		        },
+		        {
+		            "datetime": "2016-10-13T12:08:58-05:00",
+		            "lat": 41.147374,
+		            "lon": -87.860687
+		        },
+		        {
+		            "datetime": "2016-10-13T12:09:19-05:00",
+		            "lat": 41.15272,
+		            "lon": -87.860374
+		        },
+		        {
+		            "datetime": "2016-10-13T12:09:35-05:00",
+		            "lat": 41.155415,
+		            "lon": -87.859994
+		        },
+		        {
+		            "datetime": "2016-10-13T12:11:13-05:00",
+		            "lat": 41.185902,
+		            "lon": -87.852549
+		        },
+		        {
+		            "datetime": "2016-10-13T12:14:53-05:00",
+		            "lat": 41.248035,
+		            "lon": -87.835905
+		        },
+		        {
+		            "datetime": "2016-10-13T12:18:32-05:00",
+		            "lat": 41.303413,
+		            "lon": -87.805549
+		        },
+		        {
+		            "datetime": "2016-10-13T12:25:56-05:00",
+		            "lat": 41.443042,
+		            "lon": -87.732727
+		        },
+		        {
+		            "datetime": "2016-10-13T12:27:00-05:00",
+		            "lat": 41.444035,
+		            "lon": -87.732251
+		        },
+		        {
+		            "datetime": "2016-10-13T12:29:11-05:00",
+		            "lat": 41.482649,
+		            "lon": -87.712596
+		        },
+		        {
+		            "datetime": "2016-10-13T12:29:29-05:00",
+		            "lat": 41.489048,
+		            "lon": -87.707442
+		        },
+		        {
+		            "datetime": "2016-10-13T12:30:12-05:00",
+		            "lat": 41.498325,
+		            "lon": -87.69869
+		        },
+		        {
+		            "datetime": "2016-10-13T12:33:28-05:00",
+		            "lat": 41.557058,
+		            "lon": -87.670787
+		        },
+		        {
+		            "datetime": "2016-10-13T12:33:49-05:00",
+		            "lat": 41.560512,
+		            "lon": -87.669527
+		        },
+		        {
+		            "datetime": "2016-10-13T12:36:28-05:00",
+		            "lat": 41.563428,
+		            "lon": -87.667275
+		        },
+		        {
+		            "datetime": "2016-10-13T12:36:54-05:00",
+		            "lat": 41.56615,
+		            "lon": -87.666141
+		        },
+		        {
+		            "datetime": "2016-10-13T12:38:12-05:00",
+		            "lat": 41.580979,
+		            "lon": -87.659046
+		        },
+		        {
+		            "datetime": "2016-10-13T12:38:51-05:00",
+		            "lat": 41.591346,
+		            "lon": -87.652739
+		        },
+		        {
+		            "datetime": "2016-10-13T12:39:11-05:00",
+		            "lat": 41.596398,
+		            "lon": -87.650141
+		        },
+		        {
+		            "datetime": "2016-10-13T12:39:38-05:00",
+		            "lat": 41.602794,
+		            "lon": -87.646698
+		        },
+		        {
+		            "datetime": "2016-10-13T12:39:55-05:00",
+		            "lat": 41.606677,
+		            "lon": -87.644596
+		        },
+		        {
+		            "datetime": "2016-10-13T12:40:22-05:00",
+		            "lat": 41.613381,
+		            "lon": -87.641081
+		        },
+		        {
+		            "datetime": "2016-10-13T12:40:54-05:00",
+		            "lat": 41.621134,
+		            "lon": -87.636945
+		        },
+		        {
+		            "datetime": "2016-10-13T12:41:14-05:00",
+		            "lat": 41.625269,
+		            "lon": -87.634826
+		        },
+		        {
+		            "datetime": "2016-10-13T12:42:09-05:00",
+		            "lat": 41.639234,
+		            "lon": -87.627223
+		        },
+		        {
+		            "datetime": "2016-10-13T12:42:34-05:00",
+		            "lat": 41.645242,
+		            "lon": -87.623968
+		        },
+		        {
+		            "datetime": "2016-10-13T12:43:05-05:00",
+		            "lat": 41.652789,
+		            "lon": -87.619962
+		        },
+		        {
+		            "datetime": "2016-10-13T12:44:17-05:00",
+		            "lat": 41.665396,
+		            "lon": -87.617324
+		        },
+		        {
+		            "datetime": "2016-10-13T12:45:09-05:00",
+		            "lat": 41.670306,
+		            "lon": -87.615849
+		        },
+		        {
+		            "datetime": "2016-10-13T12:47:09-05:00",
+		            "lat": 41.683177,
+		            "lon": -87.612624
+		        },
+		        {
+		            "datetime": "2016-10-13T12:47:39-05:00",
+		            "lat": 41.6855,
+		            "lon": -87.612056
+		        },
+		        {
+		            "datetime": "2016-10-13T12:48:01-05:00",
+		            "lat": 41.688231,
+		            "lon": -87.611422
+		        },
+		        {
+		            "datetime": "2016-10-13T12:49:28-05:00",
+		            "lat": 41.705694,
+		            "lon": -87.607474
+		        },
+		        {
+		            "datetime": "2016-10-13T12:50:03-05:00",
+		            "lat": 41.714618,
+		            "lon": -87.605219
+		        },
+		        {
+		            "datetime": "2016-10-13T12:51:07-05:00",
+		            "lat": 41.730951,
+		            "lon": -87.601614
+		        },
+		        {
+		            "datetime": "2016-10-13T12:51:23-05:00",
+		            "lat": 41.734748,
+		            "lon": -87.601542
+		        },
+		        {
+		            "datetime": "2016-10-13T12:51:39-05:00",
+		            "lat": 41.738094,
+		            "lon": -87.600305
+		        },
+		        {
+		            "datetime": "2016-10-13T12:52:01-05:00",
+		            "lat": 41.744504,
+		            "lon": -87.598548
+		        },
+		        {
+		            "datetime": "2016-10-13T12:53:01-05:00",
+		            "lat": 41.759597,
+		            "lon": -87.595331
+		        },
+		        {
+		            "datetime": "2016-10-13T12:54:15-05:00",
+		            "lat": 41.77864,
+		            "lon": -87.590808
+		        },
+		        {
+		            "datetime": "2016-10-13T12:54:38-05:00",
+		            "lat": 41.784628,
+		            "lon": -87.589343
+		        },
+		        {
+		            "datetime": "2016-10-13T12:55:01-05:00",
+		            "lat": 41.788195,
+		            "lon": -87.588373
+		        },
+		        {
+		            "datetime": "2016-10-13T12:55:23-05:00",
+		            "lat": 41.796094,
+		            "lon": -87.586801
+		        },
+		        {
+		            "datetime": "2016-10-13T12:55:50-05:00",
+		            "lat": 41.801304,
+		            "lon": -87.587154
+		        },
+		        {
+		            "datetime": "2016-10-13T12:56:22-05:00",
+		            "lat": 41.806249,
+		            "lon": -87.589055
+		        },
+		        {
+		            "datetime": "2016-10-13T12:56:38-05:00",
+		            "lat": 41.807522,
+		            "lon": -87.590409
+		        },
+		        {
+		            "datetime": "2016-10-13T12:57:15-05:00",
+		            "lat": 41.812134,
+		            "lon": -87.592913
+		        },
+		        {
+		            "datetime": "2016-10-13T12:58:27-05:00",
+		            "lat": 41.818735,
+		            "lon": -87.597315
+		        },
+		        {
+		            "datetime": "2016-10-13T12:59:38-05:00",
+		            "lat": 41.818731,
+		            "lon": -87.597309
+		        },
+		        {
+		            "datetime": "2016-10-13T12:59:59-05:00",
+		            "lat": 41.818767,
+		            "lon": -87.597374
+		        },
+		        {
+		            "datetime": "2016-10-13T13:00:00-05:00",
+		            "lat": 41.818767,
+		            "lon": -87.597374
+		        },
+		        {
+		            "datetime": "2016-10-13T13:00:07-05:00",
+		            "lat": 41.818778,
+		            "lon": -87.597395
+		        },
+		        {
+		            "datetime": "2016-10-13T13:01:22-05:00",
+		            "lat": 41.824984,
+		            "lon": -87.601948
+		        },
+		        {
+		            "datetime": "2016-10-13T13:01:38-05:00",
+		            "lat": 41.825216,
+		            "lon": -87.602083
+		        },
+		        {
+		            "datetime": "2016-10-13T13:02:39-05:00",
+		            "lat": 41.839654,
+		            "lon": -87.61119
+		        },
+		        {
+		            "datetime": "2016-10-13T13:02:58-05:00",
+		            "lat": 41.844298,
+		            "lon": -87.613067
+		        },
+		        {
+		            "datetime": "2016-10-13T13:04:48-05:00",
+		            "lat": 41.856826,
+		            "lon": -87.618376
+		        },
+		        {
+		            "datetime": "2016-10-13T13:05:09-05:00",
+		            "lat": 41.857977,
+		            "lon": -87.619458
+		        },
+		        {
+		            "datetime": "2016-10-13T13:05:37-05:00",
+		            "lat": 41.859967,
+		            "lon": -87.620193
+		        },
+		        {
+		            "datetime": "2016-10-13T13:05:59-05:00",
+		            "lat": 41.860489,
+		            "lon": -87.620919
+		        },
+		        {
+		            "datetime": "2016-10-13T13:06:19-05:00",
+		            "lat": 41.860567,
+		            "lon": -87.622381
+		        },
+		        {
+		            "datetime": "2016-10-13T13:06:46-05:00",
+		            "lat": 41.860743,
+		            "lon": -87.623715
+		        },
+		        {
+		            "datetime": "2016-10-13T13:07:10-05:00",
+		            "lat": 41.860637,
+		            "lon": -87.625603
+		        },
+		        {
+		            "datetime": "2016-10-13T13:07:37-05:00",
+		            "lat": 41.860733,
+		            "lon": -87.627102
+		        },
+		        {
+		            "datetime": "2016-10-13T13:07:54-05:00",
+		            "lat": 41.860524,
+		            "lon": -87.627972
+		        },
+		        {
+		            "datetime": "2016-10-13T13:10:16-05:00",
+		            "lat": 41.861309,
+		            "lon": -87.639843
+		        },
+		        {
+		            "datetime": "2016-10-13T13:10:33-05:00",
+		            "lat": 41.86115,
+		            "lon": -87.639725
+		        },
+		        {
+		            "datetime": "2016-10-13T13:10:51-05:00",
+		            "lat": 41.860287,
+		            "lon": -87.638432
+		        },
+		        {
+		            "datetime": "2016-10-13T13:11:08-05:00",
+		            "lat": 41.860948,
+		            "lon": -87.638574
+		        },
+		        {
+		            "datetime": "2016-10-13T13:11:25-05:00",
+		            "lat": 41.860521,
+		            "lon": -87.638494
+		        },
+		        {
+		            "datetime": "2016-10-13T13:12:12-05:00",
+		            "lat": 41.860811,
+		            "lon": -87.642571
+		        },
+		        {
+		            "datetime": "2016-10-13T13:12:30-05:00",
+		            "lat": 41.860365,
+		            "lon": -87.643141
+		        },
+		        {
+		            "datetime": "2016-10-13T13:12:47-05:00",
+		            "lat": 41.860533,
+		            "lon": -87.643656
+		        },
+		        {
+		            "datetime": "2016-10-13T13:13:15-05:00",
+		            "lat": 41.860395,
+		            "lon": -87.644854
+		        },
+		        {
+		            "datetime": "2016-10-13T13:13:42-05:00",
+		            "lat": 41.859954,
+		            "lon": -87.646305
+		        },
+		        {
+		            "datetime": "2016-10-13T13:14:03-05:00",
+		            "lat": 41.86006,
+		            "lon": -87.64891
+		        },
+		        {
+		            "datetime": "2016-10-13T13:15:12-05:00",
+		            "lat": 41.860013,
+		            "lon": -87.649022
+		        },
+		        {
+		            "datetime": "2016-10-13T13:15:36-05:00",
+		            "lat": 41.860047,
+		            "lon": -87.649156
+		        },
+		        {
+		            "datetime": "2016-10-13T13:16:03-05:00",
+		            "lat": 41.860073,
+		            "lon": -87.649131
+		        },
+		        {
+		            "datetime": "2016-10-13T13:16:24-05:00",
+		            "lat": 41.860414,
+		            "lon": -87.645175
+		        },
+		        {
+		            "datetime": "2016-10-13T13:16:46-05:00",
+		            "lat": 41.860414,
+		            "lon": -87.645175
+		        },
+		        {
+		            "datetime": "2016-10-13T13:17:09-05:00",
+		            "lat": 41.860414,
+		            "lon": -87.645175
+		        },
+		        {
+		            "datetime": "2016-10-13T13:17:24-05:00",
+		            "lat": 41.860414,
+		            "lon": -87.645175
+		        },
+		        {
+		            "datetime": "2016-10-13T13:17:46-05:00",
+		            "lat": 41.860414,
+		            "lon": -87.645175
+		        },
+		        {
+		            "datetime": "2016-10-13T13:18:16-05:00",
+		            "lat": 41.860414,
+		            "lon": -87.645175
+		        },
+		        {
+		            "datetime": "2016-10-13T13:18:46-05:00",
+		            "lat": 41.860448,
+		            "lon": -87.643886
+		        },
+		        {
+		            "datetime": "2016-10-13T13:19:16-05:00",
+		            "lat": 41.860356,
+		            "lon": -87.642016
+		        },
+		        {
+		            "datetime": "2016-10-13T13:19:42-05:00",
+		            "lat": 41.858551,
+		            "lon": -87.638215
+		        },
+		        {
+		            "datetime": "2016-10-13T13:19:59-05:00",
+		            "lat": 41.86046,
+		            "lon": -87.637386
+		        },
+		        {
+		            "datetime": "2016-10-13T13:20:15-05:00",
+		            "lat": 41.86179,
+		            "lon": -87.637079
+		        },
+		        {
+		            "datetime": "2016-10-13T13:21:26-05:00",
+		            "lat": 41.868347,
+		            "lon": -87.6377
+		        },
+		        {
+		            "datetime": "2016-10-13T13:21:44-05:00",
+		            "lat": 41.869505,
+		            "lon": -87.637887
+		        },
+		        {
+		            "datetime": "2016-10-13T13:22:10-05:00",
+		            "lat": 41.871121,
+		            "lon": -87.638174
+		        },
+		        {
+		            "datetime": "2016-10-13T13:22:28-05:00",
+		            "lat": 41.871849,
+		            "lon": -87.63774
+		        },
+		        {
+		            "datetime": "2016-10-13T13:23:58-05:00",
+		            "lat": 41.877596,
+		            "lon": -87.638867
+		        },
+		        {
+		            "datetime": "2016-10-13T13:25:01-05:00",
+		            "lat": 41.878604,
+		            "lon": -87.639012
+		        }
+		    ],
+		    "source": "moves-app"
+		}
+
+
+## Current Location [/location/now]
+
+### Get Current Location [GET]
+
++ Response 200 (application/json)
+
+		{
+	        "location": {
+	            "lat": 40.115824014251,
+	            "lon": -88.2411789894104
+	        },
+	        "address": {
+	            "formatted_address": "101 S Market St, Champaign, IL 61820, USA",
+	            "street_number": "101",
+	            "street_name": "South Market Street",
+	            "neighborhood": "Downtown Champaign",
+	            "city": "Champaign",
+	            "country": "United States",
+	            "country_code": "US",
+	            "postal_code": "61820",
+	            "administrative_level_1": {
+	                "short": "IL",
+	                "long": "Illinois"
+	            },
+	            "administrative_level_2": {
+	                "short": "Champaign County",
+	                "long": "Champaign County"
+	            },
+	            "administrative_level_3": {
+	                "short": "Champaign City Township",
+	                "long": "Champaign City Township"
+	            }
+	        },
+	        "source": "moves-app",
+	        "datetime_updated": "2016-10-13T10:23:00-05:00"
+		}
+
+
+## Places [/location/places{?q}]
+
+### List Places [GET]
+
++ Parameters
+	+ q: `six10` (string, optional) - Search string
+
++ Response 200 (application/json)
+
+		{
+		    "meta": {
+		        "has_more": false,
+		        "total_size": 1
+		    },
+		    "results": [
+		        {
+		            "id": "2741eceebdcfd3877e53e940cff4cedd",
+		            "name": "Venue SIX10",
+		            "primary_category": "Event Space",
+		            "categories": [
+		                "Event Space"
+		            ],
+		            "location": {
+		                "lat": 41.874072514131655,
+		                "lon": -87.62431890056097
+		            },
+		            "address": {
+		                "formatted_address": "608-610 S Michigan Ave, Chicago, IL 60605, USA",
+		                "street_number": "608-610",
+		                "street_name": "South Michigan Avenue",
+		                "neighborhood": "Chicago Loop",
+		                "city": "Chicago",
+		                "country": "United States",
+		                "country_code": "US",
+		                "postal_code": "60605",
+		                "administrative_level_1": {
+		                    "short": "IL",
+		                    "long": "Illinois"
+		                },
+		                "administrative_level_2": {
+		                    "short": "Cook County",
+		                    "long": "Cook County"
+		                }
+		            },
+		            "visits": 1,
+		            "first_visit": "2015-11-19T09:19:24-06:00",
+		            "last_visit": "2015-11-19T09:19:24-06:00"
+		        }
+		    ]
+		}
+
+
+### Get Place [GET /location/places/{id}]
+
++ Parameters
+	+ id: `2741eceebdcfd3877e53e940cff4cedd` (string) - Place ID
+
++ Response 200 (application/json)
+
+		{
+		    "id": "2741eceebdcfd3877e53e940cff4cedd",
+		    "name": "Venue SIX10",
+		    "primary_category": "Event Space",
+		    "categories": [
+		        "Event Space"
+		    ],
+		    "location": {
+		        "lat": 41.874072514131655,
+		        "lon": -87.62431890056097
+		    },
+		    "address": {
+		        "formatted_address": "608-610 S Michigan Ave, Chicago, IL 60605, USA",
+		        "street_number": "608-610",
+		        "street_name": "South Michigan Avenue",
+		        "neighborhood": "Chicago Loop",
+		        "city": "Chicago",
+		        "country": "United States",
+		        "country_code": "US",
+		        "postal_code": "60605",
+		        "administrative_level_1": {
+		            "short": "IL",
+		            "long": "Illinois"
+		        },
+		        "administrative_level_2": {
+		            "short": "Cook County",
+		            "long": "Cook County"
+		        }
+		    },
+		    "visits": 1,
+		    "first_visit": "2015-11-19T09:19:24-06:00",
+		    "last_visit": "2015-11-19T09:19:24-06:00"
+		}

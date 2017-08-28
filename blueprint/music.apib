@@ -1,0 +1,213 @@
+
+# Group Music
+
+Music history is captured for plays from a personal music library as well as from streaming services, both at home and mobile. Aggregate artist/album data, as well as detailed track-by-track history is available from the music endpoints.
+
+## Albums [/music/albums{?q}]
+
+### List Albums [GET]
+
++ Parameters
+	+ q: `"100 reasons to live"` (string, optional) - Search string
+
++ Response 200 (application/json)
+
+		{
+		    "meta": {
+		        "has_more": false,
+		        "total_size": 1
+		    },
+		    "results": [
+		        {
+		            "id": "88225fc73d32fdff3d77401887145041",
+		            "name": "100 Reasons To Live",
+		            "label": "Garuda",
+		            "album_type": "album",
+		            "release_date": "2016-04-01",
+		            "image": "https://i.scdn.co/image/54f122c573eaa38c6971433494a9cafbf9ef9d70",
+		            "spotify_uri": "spotify:album:5HicuC798USMxrV1PP4pxX",
+		            "plays": 192,
+		            "first_listen": "2016-04-10T18:35:30-05:00",
+		            "last_listen": "2017-08-23T16:21:10-05:00"
+		        }
+		    ]
+		}
+
+### Get Album [GET /music/albums/{id}]
+
++ Parameters
+	+ id: `88225fc73d32fdff3d77401887145041` (string) - Album ID
+
++ Response 200 (application/json)
+
+		{
+            "id": "88225fc73d32fdff3d77401887145041",
+            "name": "100 Reasons To Live",
+            "label": "Garuda",
+            "album_type": "album",
+            "release_date": "2016-04-01",
+            "image": "https://i.scdn.co/image/54f122c573eaa38c6971433494a9cafbf9ef9d70",
+            "spotify_uri": "spotify:album:5HicuC798USMxrV1PP4pxX",
+            "plays": 192,
+            "first_listen": "2016-04-10T18:35:30-05:00",
+            "last_listen": "2017-08-23T16:21:10-05:00"
+        }
+
+
+## Artists [/music/artists{?q}]
+
+### List Artists [GET]
+
++ Parameters
+	+ q: `gareth` (string, optional) - Search string
+
++ Response 200 (application/json)
+
+		{
+		    "meta": {
+		        "has_more": false,
+		        "total_size": 1
+		    },
+		    "results": [
+		        {
+		            "id": "1e9e1852ebe5e37fe63420310459d20a",
+		            "name": "Gareth Emery",
+		            "image": "https://i.scdn.co/image/f6f2bd108e9cb5afb3a5cf1cf0d2d978a3a5b05e",
+		            "spotify_uri": "spotify:artist:0hprEC0nsWuQPSHag1O2Vi",
+		            "plays": 2364,
+		            "first_listen": "2014-08-07T13:36:45-05:00",
+		            "last_listen": "2017-08-25T20:42:11-05:00",
+		            "genres": [
+		                "big room",
+		                "deep big room",
+		                "edm",
+		                "electro house",
+		                "progressive electro house",
+		                "progressive house",
+		                "progressive trance",
+		                "trance",
+		                "tropical house",
+		                "uplifting trance"
+		            ]
+		        }
+		    ]
+		}
+
+### Get Artist [GET /music/artists/{id}]
+
++ Parameters
+	+ id: `0e8275c96eae37b07b96e92efaa13ca6` (string) - Artist ID
+
++ Response 200 (application/json)
+
+		{
+		    "id": "0e8275c96eae37b07b96e92efaa13ca6",
+		    "name": "Ramones",
+		    "image": "https://i.scdn.co/image/30ff88b596860cefb7a138e2e3dd3af771381231",
+		    "spotify_uri": "spotify:artist:1co4F2pPNH8JjTutZkmgSm",
+		    "plays": 64,
+		    "first_listen": "2010-02-19T22:54:58-06:00",
+		    "last_listen": "2016-12-04T15:46:23-06:00",
+		    "genres": [
+		        "album rock",
+		        "alternative rock",
+		        "classic rock",
+		        "hard rock",
+		        "heavy christmas",
+		        "permanent wave",
+		        "pop punk",
+		        "punk",
+		        "punk christmas",
+		        "rock",
+		        "skate punk"
+		    ]
+		}
+
+
+## Music History [/music/history{?datetime_gte,datetime_lte}]
+
+### List Plays [GET]
+
++ Parameters
+	+ datetime_gte: `2017-01-26T15:20:00-06:00` (string, optional) - Datetime greater than or equal, in ISO8601 format
+	+ datetime_lte: `2017-01-26T15:52:00-06:00` (string, optional) - Datetime less than or equal, in ISO8601 format
+
++ Response 200 (application/json)
+
+		{
+		    "meta": {
+		        "has_more": false,
+		        "total_size": 3
+		    },
+		    "results": [
+		        {
+		            "id": "b5af76cb30089beee6cc7b0cc4660998",
+		            "datetime": "2017-01-26T15:51:48-06:00",
+		            "track_display": "Avicii — The Nights",
+		            "image": "https://i.scdn.co/image/e3ff9d8a7ed4060bb03d7714be0a8bdf12b1b221",
+		            "track": "The Nights",
+		            "artist": "Avicii",
+		            "artist_id": [
+		                "cfc9172934babe72516c017a308be2c3"
+		            ],
+		            "album": "The Days / Nights",
+		            "album_id": "fb733c97e256d7bada4b2fed4c556075",
+		            "source": "last.fm"
+		        },
+		        {
+		            "id": "fd6579d5e20bcdf188852a852ee95960",
+		            "datetime": "2017-01-26T15:25:07-06:00",
+		            "track_display": "Fabio XB — Can't Let Go",
+		            "image": "https://i.scdn.co/image/a5e3aaa703144d4d725f8cb805ff8eaa576ffbed",
+		            "track": "Can't Let Go",
+		            "artist": "Fabio XB",
+		            "artist_id": [
+		                "f7088ddebe4857fb9221b86345656a6b",
+		                "2bab06f2f3b2bfb76afed348de16a479",
+		                "eacc46c0ce344307a42259e487377795"
+		            ],
+		            "album": "Can't Let Go",
+		            "album_id": "3273372a10412349542f6f1d055c062f",
+		            "source": "last.fm"
+		        },
+		        {
+		            "id": "e4d756c0d69e976e744063c37babaa7e",
+		            "datetime": "2017-01-26T15:21:20-06:00",
+		            "track_display": "Gareth Emery — Sanctuary - Radio Edit",
+		            "image": "https://i.scdn.co/image/6ac02c75661b179bbdaa0086ae968aa2f7707626",
+		            "track": "Sanctuary - Radio Edit",
+		            "artist": "Gareth Emery",
+		            "artist_id": [
+		                "1e9e1852ebe5e37fe63420310459d20a",
+		                "972ae329e3384c2878459ef3b99f7aec"
+		            ],
+		            "album": "Sanctuary",
+		            "album_id": "f8a92b2c0f7c8912886d721168939e79",
+		            "source": "last.fm"
+		        }
+		    ]
+		}
+
+### Get Play [GET /music/history/{id}]
+
++ Parameters
+	+ id: `e4d756c0d69e976e744063c37babaa7e` (string) - Play ID
+
++ Response 200 (application/json)
+
+
+        {
+            "id": "e4d756c0d69e976e744063c37babaa7e",
+            "datetime": "2017-01-26T15:21:20-06:00",
+            "track_display": "Gareth Emery — Sanctuary - Radio Edit",
+            "image": "https://i.scdn.co/image/6ac02c75661b179bbdaa0086ae968aa2f7707626",
+            "track": "Sanctuary - Radio Edit",
+            "artist": "Gareth Emery",
+            "artist_id": [
+                "1e9e1852ebe5e37fe63420310459d20a",
+                "972ae329e3384c2878459ef3b99f7aec"
+            ],
+            "album": "Sanctuary",
+            "album_id": "f8a92b2c0f7c8912886d721168939e79",
+            "source": "last.fm"
+        }
